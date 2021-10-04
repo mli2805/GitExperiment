@@ -1,20 +1,37 @@
-// GitExperiment.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include <stdio.h>
+#include <math.h>
+#include <conio.h>
 #include <iostream>
+#include <string>
+using namespace std;
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int number, digit = 0;
+    string result = "";
+    cout << "Hi!" << endl;
+    cout << "Input number please=" << endl;
+    cin >> number;
+    while (number > 0)
+    {
+        digit = number % 16;
+        switch (digit)
+        {
+            case 15 : result = 'F' + result; break;
+            case 14 : result = 'E' + result; break;
+            case 13 : result = 'D' + result; break;
+            case 12 : result = 'C' + result; break;
+            case 11 : result = 'B' + result; break;
+            case 10 : result = 'A' + result; break;
+
+            default: result = to_string(digit) + result; break;
+        }
+
+        
+        number /= 16;
+    }
+    cout << "The number in binary is:" << result << endl;
+    system("pause");
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
